@@ -4,30 +4,47 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <script src="main.js"></script>
 </head>
 <body>
 async vs defer
+다음 js 스크립트의 위치에 따른 성능 차이를 비교 합니다.
+<!-- <script src="main.js"></script> -->
+
+1. head 사이에 오는 경우
+parsing HTML
+fetching js
+executing js
+parsing HTML
+--> js 파일이 큰 경우 보틀넥 발생 (HTML페이지 열리지도않음.)
+
+2. body 사이에 오는 경우
+parsing HTML
+fetching js
+executing js
+js에 의존적인 페이지라면 뭉개져서 보일 수 있음
+
+3. head+async
+<!-- <script asyn src="main.js"></script> -->
+parsing html
+
+병렬로 다운로드
+다운 완료가 되면 HTML 다시파싱
+다운로드 받는 시간 절약
+단점) 자바스크립트가 HTML 파칭 되기 전에 실행됨
+-> 돔조작하게되면 위험
+-> 사용자는 쫌
+
+4. head+defer
+<!-- <script asyn src="main.js"></script> -->
+
+parsing HTML하는 동안 필요한 JS를 받아
+다운로드가 먼저 된 아이들을 먼저 실행 -> async
+
+defer는 파싱하는동안 '다운로드를 다 받음'
+순서대로 실행함 -> defer
+head안에 defer를 넣어 사용하는것이 제일 안전하고 효율적인것으로 확인.
 
 </body>
 </html>
-
-$ git config --global user.email "your_email@example.com"
-
-git config --global user.email "yinzaihecode@gmail.com"
-
-your_email@example.com에는 자신의 github 계정에 등록된 email주소를 적으시면 됩니다. 위와 같이 커맨드를 입력하고   
-
-$ git config --global user.email
-커맨드를 입력해서 제대로 email주소가 들어갔는지 확인해봅니다.   사실 이미 해버린 커밋에 대해서 Author를 바꾸는 것은 config의 email과 상관이 없지만 추후에 할 커밋을 대비하여 config를 설정하는 것을 언급하였습니다.   확인이 다 되었으면 이제 바뀐 Author로 커밋을 변경해야하는데요. 
-
-  이를 위해선 
-
-rebase : 병합용
-commit - -amend : 커밋 변경용
-이 두가지 커맨드가 필요합니다.
-
-사실 제대로 커밋 구조에 대해 설명을 하려면 rebase에 대해서 잘 알고 있어야하지만, 지금의 저는 rebase에 대해 잘 모르기에 추후에 공부를 한후에 내용을 더 추가하도록 하겠습니다.
-
-  지금 제 repository에서 2017/02/25 에 해당하는 커밋은 총 세개 입니다.
-
-
+ 
