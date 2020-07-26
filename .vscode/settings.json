@@ -1,0 +1,14 @@
+{
+    "[json]": {
+
+        "editor.quickSuggestions": {
+            "strings": true
+        },
+        "editor.suggest.insertMode": "replace"
+    },
+    "workbench.colorCustomizations": {
+        
+        "terminal.foreground": "#0F4C81",
+        "terminal.background": "#cfdbe6"
+    }
+}
