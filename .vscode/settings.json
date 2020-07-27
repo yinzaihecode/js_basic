@@ -10,5 +10,6 @@
         
         "terminal.foreground": "#0F4C81",
         "terminal.background": "#cfdbe6"
-    }
+    },
+    "workbench.settings.openDefaultKeybindings": true
 }
